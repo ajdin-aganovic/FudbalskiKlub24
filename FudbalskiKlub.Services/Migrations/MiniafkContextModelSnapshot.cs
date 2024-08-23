@@ -50,6 +50,16 @@ namespace FudbalskiKlub.Services.Migrations
                         .HasName("PK__Bolest__345EDD63C1FF3573");
 
                     b.ToTable("Bolest", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            BolestId = 1,
+                            Izbrisan = false,
+                            SifraPovrede = "RK1",
+                            TipPovrede = "Prijelom koljena",
+                            TrajanjePovredeDani = 30
+                        });
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.Clanarina", b =>
@@ -84,6 +94,18 @@ namespace FudbalskiKlub.Services.Migrations
                     b.HasIndex("KorisnikId");
 
                     b.ToTable("Clanarina", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            ClanarinaId = 1,
+                            DatumPlacanja = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(1224),
+                            Dug = 0.0,
+                            Izbrisan = false,
+                            IznosClanarine = 60.0,
+                            KorisnikId = 4,
+                            Placena = false
+                        });
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.Korisnik", b =>
@@ -158,19 +180,87 @@ namespace FudbalskiKlub.Services.Migrations
                         new
                         {
                             KorisnikId = 1,
-                            DatumRodjenja = new DateTime(1999, 9, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumRodjenja = new DateTime(1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ajdinaganovic23@gmail.com",
                             Ime = "Ajdin",
                             Izbrisan = false,
                             KorisnickoIme = "ajdo",
-                            LozinkaHash = "X9daZgUPNFHXBUsvXLpS9NlOgU8=",
-                            LozinkaSalt = "+UEXRUzOUBzegZPmlU9P3g==",
+                            LozinkaHash = "Oa4rx7+qcloIktHHPDpw8b81XA8=",
+                            LozinkaSalt = "IM7WzlHgXOgfq91wFu7WoA==",
                             PodUgovorom = true,
                             PodUgovoromDo = new DateTime(2026, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PodUgovoromOd = new DateTime(2024, 8, 23, 6, 46, 53, 757, DateTimeKind.Local).AddTicks(9224),
+                            PodUgovoromOd = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(121),
                             Prezime = "Admin",
                             StrucnaSprema = "VSS",
                             Uloga = "Administrator"
+                        },
+                        new
+                        {
+                            KorisnikId = 2,
+                            DatumRodjenja = new DateTime(1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "trener1@gmail.com",
+                            Ime = "Glavni",
+                            Izbrisan = false,
+                            KorisnickoIme = "trener1",
+                            LozinkaHash = "Std8QmPLz3h+a2jBEP0bkPmWOXI=",
+                            LozinkaSalt = "tPUEJCbWXnbPbOuO3qPUQA==",
+                            PodUgovorom = true,
+                            PodUgovoromDo = new DateTime(2026, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PodUgovoromOd = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(499),
+                            Prezime = "Trener",
+                            StrucnaSprema = "VSS",
+                            Uloga = "Glavni trener"
+                        },
+                        new
+                        {
+                            KorisnikId = 3,
+                            DatumRodjenja = new DateTime(1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "doktor1@gmail.com",
+                            Ime = "Glavni",
+                            Izbrisan = false,
+                            KorisnickoIme = "doktor1",
+                            LozinkaHash = "ePGBJ/x27uOkdSqDzzhvQ3u4550=",
+                            LozinkaSalt = "4TNlW/LENlovWxtQ1YlEfQ==",
+                            PodUgovorom = true,
+                            PodUgovoromDo = new DateTime(2026, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PodUgovoromOd = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(583),
+                            Prezime = "Doktor",
+                            StrucnaSprema = "VSS",
+                            Uloga = "Doktor"
+                        },
+                        new
+                        {
+                            KorisnikId = 4,
+                            DatumRodjenja = new DateTime(1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "igrac1@gmail.com",
+                            Ime = "Igrac",
+                            Izbrisan = false,
+                            KorisnickoIme = "igrac1",
+                            LozinkaHash = "UziO86wljvMdfmbwvGRrqRE6GFE=",
+                            LozinkaSalt = "hvmvzCoKklCU4gtJVPKiow==",
+                            PodUgovorom = true,
+                            PodUgovoromDo = new DateTime(2026, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PodUgovoromOd = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(624),
+                            Prezime = "Prvi",
+                            StrucnaSprema = "SSS",
+                            Uloga = "Igrac"
+                        },
+                        new
+                        {
+                            KorisnikId = 5,
+                            DatumRodjenja = new DateTime(1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "kupac1@gmail.com",
+                            Ime = "Kupac",
+                            Izbrisan = false,
+                            KorisnickoIme = "kupac1",
+                            LozinkaHash = "VDNx7QjEhNesT0sEJMcLyMeordU=",
+                            LozinkaSalt = "/UyWVOB7LDKVu75v1Js4VQ==",
+                            PodUgovorom = true,
+                            PodUgovoromDo = new DateTime(2026, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PodUgovoromOd = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(664),
+                            Prezime = "Prvi",
+                            StrucnaSprema = "VSS",
+                            Uloga = "Kupac"
                         });
                 });
 
@@ -220,6 +310,14 @@ namespace FudbalskiKlub.Services.Migrations
                     b.HasIndex("PozicijaId");
 
                     b.ToTable("KorisnikPozicija", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            KorisnikPozicijaId = 1,
+                            KorisnikId = 4,
+                            PozicijaId = 1
+                        });
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.KorisnikTransakcijskiRacun", b =>
@@ -306,6 +404,16 @@ namespace FudbalskiKlub.Services.Migrations
                     b.HasIndex("KorisnikId");
 
                     b.ToTable("Narudzba", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            NarudzbaId = 1,
+                            BrojNarudzba = "AJSDJWAIAfasfh1h23hs",
+                            Datum = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(1344),
+                            KorisnikId = 5,
+                            Status = "kreirano"
+                        });
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.NarudzbaStavke", b =>
@@ -333,6 +441,29 @@ namespace FudbalskiKlub.Services.Migrations
                     b.HasIndex("ProizvodId");
 
                     b.ToTable("NarudzbaStavke", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            NarudzbaStavkeId = 1,
+                            Kolicina = 2,
+                            NarudzbaId = 1,
+                            ProizvodId = 1
+                        },
+                        new
+                        {
+                            NarudzbaStavkeId = 2,
+                            Kolicina = 1,
+                            NarudzbaId = 1,
+                            ProizvodId = 3
+                        },
+                        new
+                        {
+                            NarudzbaStavkeId = 3,
+                            Kolicina = 20,
+                            NarudzbaId = 1,
+                            ProizvodId = 4
+                        });
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.Platum", b =>
@@ -366,6 +497,26 @@ namespace FudbalskiKlub.Services.Migrations
                     b.HasIndex("TransakcijskiRacunId");
 
                     b.ToTable("Plata");
+
+                    b.HasData(
+                        new
+                        {
+                            PlataId = 1,
+                            DatumSlanja = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(1477),
+                            Izbrisan = false,
+                            Iznos = 1200.0,
+                            StateMachine = "active",
+                            TransakcijskiRacunId = 1
+                        },
+                        new
+                        {
+                            PlataId = 2,
+                            DatumSlanja = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(1484),
+                            Izbrisan = false,
+                            Iznos = 900.0,
+                            StateMachine = "active",
+                            TransakcijskiRacunId = 2
+                        });
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.Pozicija", b =>
@@ -393,6 +544,43 @@ namespace FudbalskiKlub.Services.Migrations
                         .HasName("PK__Pozicija__C25169AEA95BEC4D");
 
                     b.ToTable("Pozicija", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            PozicijaId = 1,
+                            Izbrisan = false,
+                            KategorijaPozicije = "Napad",
+                            NazivPozicije = "Centarfor"
+                        },
+                        new
+                        {
+                            PozicijaId = 2,
+                            Izbrisan = false,
+                            KategorijaPozicije = "Vezni red",
+                            NazivPozicije = "Srednji vezni"
+                        },
+                        new
+                        {
+                            PozicijaId = 3,
+                            Izbrisan = false,
+                            KategorijaPozicije = "Odbrana",
+                            NazivPozicije = "Srednji stoper"
+                        },
+                        new
+                        {
+                            PozicijaId = 4,
+                            Izbrisan = false,
+                            KategorijaPozicije = "Vezni red",
+                            NazivPozicije = "Ofanzivni vezni"
+                        },
+                        new
+                        {
+                            PozicijaId = 5,
+                            Izbrisan = false,
+                            KategorijaPozicije = "Odbrana",
+                            NazivPozicije = "Golman"
+                        });
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.Proizvod", b =>
@@ -434,6 +622,52 @@ namespace FudbalskiKlub.Services.Migrations
                         .HasName("PK__Proizvod__21A8BFF81155EE96");
 
                     b.ToTable("Proizvod", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            ProizvodId = 1,
+                            Cijena = 55.0,
+                            Izbrisan = false,
+                            Kategorija = "Dresovi",
+                            Kolicina = 50,
+                            Naziv = "Gostujuci dres 24/25",
+                            Sifra = "GD2425",
+                            StateMachine = "draft"
+                        },
+                        new
+                        {
+                            ProizvodId = 2,
+                            Cijena = 55.0,
+                            Izbrisan = false,
+                            Kategorija = "Dresovi",
+                            Kolicina = 50,
+                            Naziv = "Domaci dres 24/25",
+                            Sifra = "DD2425",
+                            StateMachine = "draft"
+                        },
+                        new
+                        {
+                            ProizvodId = 3,
+                            Cijena = 25.0,
+                            Izbrisan = false,
+                            Kategorija = "Dodaci",
+                            Kolicina = 150,
+                            Naziv = "Sal",
+                            Sifra = "Sal2425",
+                            StateMachine = "draft"
+                        },
+                        new
+                        {
+                            ProizvodId = 4,
+                            Cijena = 1.0,
+                            Izbrisan = false,
+                            Kategorija = "Razno",
+                            Kolicina = 1000,
+                            Naziv = "Fudbalske slicice (5 kom.)",
+                            Sifra = "FS2425",
+                            StateMachine = "draft"
+                        });
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.Stadion", b =>
@@ -459,6 +693,22 @@ namespace FudbalskiKlub.Services.Migrations
                         .HasName("PK__Stadion__DDB3F389E8282FAE");
 
                     b.ToTable("Stadion", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            StadionId = 1,
+                            Izbrisan = false,
+                            KapacitetStadiona = 2000,
+                            NazivStadiona = "Podbrdo"
+                        },
+                        new
+                        {
+                            StadionId = 2,
+                            Izbrisan = false,
+                            KapacitetStadiona = 2000,
+                            NazivStadiona = "Uzbrdo"
+                        });
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.Statistika", b =>
@@ -505,6 +755,22 @@ namespace FudbalskiKlub.Services.Migrations
                     b.HasIndex("KorisnikId");
 
                     b.ToTable("Statistika", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            StatistikaId = 1,
+                            Asistencije = 5,
+                            BezPrimGola = 0,
+                            CrveniKartoni = 1,
+                            Golovi = 10,
+                            IgracMjeseca = false,
+                            Izbrisan = false,
+                            KorisnikId = 4,
+                            OcjenaZadUtak = 3.0,
+                            ProsjecnaOcjena = 8.0,
+                            ZutiKartoni = 2
+                        });
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.Termin", b =>
@@ -545,6 +811,17 @@ namespace FudbalskiKlub.Services.Migrations
                     b.HasIndex("StadionId");
 
                     b.ToTable("Termin", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            TerminId = 1,
+                            Datum = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(1581),
+                            Rezultat = "0:0",
+                            SifraTermina = "UTK1",
+                            StadionId = 1,
+                            TipTermina = "Domaca utakmica"
+                        });
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.TransakcijskiRacun", b =>
@@ -582,6 +859,26 @@ namespace FudbalskiKlub.Services.Migrations
                     b.HasIndex("KorisnikId");
 
                     b.ToTable("TransakcijskiRacun", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            TransakcijskiRacunId = 1,
+                            AdresaPrebivalista = "Mahala b.b.",
+                            BrojRacuna = "12341234",
+                            Izbrisan = false,
+                            KorisnikId = 1,
+                            NazivBanke = "Univerzitetskih kredita"
+                        },
+                        new
+                        {
+                            TransakcijskiRacunId = 2,
+                            AdresaPrebivalista = "Alipasino polje 47",
+                            BrojRacuna = "47474747",
+                            Izbrisan = false,
+                            KorisnikId = 2,
+                            NazivBanke = "Lipo halve hamdija"
+                        });
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.Trening", b =>
@@ -612,6 +909,16 @@ namespace FudbalskiKlub.Services.Migrations
                         .HasName("PK__Trening__3B04A8D37D605210");
 
                     b.ToTable("Trening", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            TreningId = 1,
+                            DatumTreninga = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(1612),
+                            Izbrisan = false,
+                            NazivTreninga = "TPT",
+                            TipTreninga = "Trening prvog tipa"
+                        });
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.TreningStadion", b =>
@@ -663,6 +970,50 @@ namespace FudbalskiKlub.Services.Migrations
                         .HasName("PK__Uloga__DCAB23CBA0BD3CE4");
 
                     b.ToTable("Uloga", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UlogaId = 1,
+                            Izbrisan = false,
+                            NazivUloge = "Administrator",
+                            PodtipUloge = "Administracija"
+                        },
+                        new
+                        {
+                            UlogaId = 2,
+                            Izbrisan = false,
+                            NazivUloge = "Glavni trener",
+                            PodtipUloge = "Strucni stab"
+                        },
+                        new
+                        {
+                            UlogaId = 3,
+                            Izbrisan = false,
+                            NazivUloge = "Glavni doktor",
+                            PodtipUloge = "Medicinsko osoblje"
+                        },
+                        new
+                        {
+                            UlogaId = 4,
+                            Izbrisan = false,
+                            NazivUloge = "Igrac",
+                            PodtipUloge = "Clan"
+                        },
+                        new
+                        {
+                            UlogaId = 5,
+                            Izbrisan = false,
+                            NazivUloge = "Kupac",
+                            PodtipUloge = "Navijac"
+                        },
+                        new
+                        {
+                            UlogaId = 6,
+                            Izbrisan = false,
+                            NazivUloge = "Bez uloge",
+                            PodtipUloge = "Bez uloge"
+                        });
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.Clanarina", b =>

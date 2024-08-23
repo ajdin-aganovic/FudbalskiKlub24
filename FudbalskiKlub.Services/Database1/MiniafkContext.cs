@@ -381,13 +381,118 @@ public partial class MiniafkContext : DbContext
         });
 
         var saltAdmin = KorisnikService.GenerateSalt();
+        var saltTrener = KorisnikService.GenerateSalt();
+        var saltDoktor = KorisnikService.GenerateSalt();
+        var saltIgrac = KorisnikService.GenerateSalt();
+        var saltKupac = KorisnikService.GenerateSalt();
 
         modelBuilder.Entity<Korisnik>().HasData(
             new Korisnik { KorisnikId=1, Ime="Ajdin", Prezime="Admin", KorisnickoIme="ajdo", Email="ajdinaganovic23@gmail.com", Uloga="Administrator", PodUgovorom=true, 
                 PodUgovoromOd=DateTime.Now, PodUgovoromDo=new DateTime(2026, 08, 08), StrucnaSprema="VSS", Izbrisan=false, 
-                DatumRodjenja=new DateTime(1999, 9, 23, 0, 0, 0), LozinkaSalt=saltAdmin, LozinkaHash=KorisnikService.GenerateHash(saltAdmin, "string")  }
-            
+                DatumRodjenja=new DateTime(1999, 1, 1, 0, 0, 0), LozinkaSalt=saltAdmin, LozinkaHash=KorisnikService.GenerateHash(saltAdmin, "string") },
+            new Korisnik
+            {
+                KorisnikId = 2, Ime = "Glavni", Prezime = "Trener", KorisnickoIme = "trener1", Email = "trener1@gmail.com", Uloga = "Glavni trener",
+                PodUgovorom = true, PodUgovoromOd = DateTime.Now, PodUgovoromDo = new DateTime(2026, 08, 08), StrucnaSprema = "VSS", Izbrisan = false,
+                DatumRodjenja = new DateTime(1999, 1, 1, 0, 0, 0), LozinkaSalt = saltTrener, LozinkaHash = KorisnikService.GenerateHash(saltTrener, "string") },
+            new Korisnik
+            {
+                KorisnikId = 3, Ime = "Glavni", Prezime = "Doktor", KorisnickoIme = "doktor1", Email = "doktor1@gmail.com", Uloga = "Doktor",
+                PodUgovorom = true, PodUgovoromOd = DateTime.Now, PodUgovoromDo = new DateTime(2026, 08, 08), StrucnaSprema = "VSS", Izbrisan = false,
+                DatumRodjenja = new DateTime(1999, 1, 1, 0, 0, 0), LozinkaSalt = saltDoktor, LozinkaHash = KorisnikService.GenerateHash(saltDoktor, "string") },
+            new Korisnik
+            {
+                KorisnikId = 4, Ime = "Igrac", Prezime = "Prvi", KorisnickoIme = "igrac1", Email = "igrac1@gmail.com", Uloga = "Igrac",
+                PodUgovorom = true, PodUgovoromOd = DateTime.Now, PodUgovoromDo = new DateTime(2026, 08, 08), StrucnaSprema = "SSS", Izbrisan = false,
+                DatumRodjenja = new DateTime(1999, 1, 1, 0, 0, 0), LozinkaSalt = saltIgrac, LozinkaHash = KorisnikService.GenerateHash(saltIgrac, "string") },
+
+            new Korisnik
+            {
+                KorisnikId = 5, Ime = "Kupac", Prezime = "Prvi", KorisnickoIme = "kupac1", Email = "kupac1@gmail.com", Uloga = "Kupac",
+                PodUgovorom = true, PodUgovoromOd = DateTime.Now, PodUgovoromDo = new DateTime(2026, 08, 08), StrucnaSprema = "VSS", Izbrisan = false,
+                DatumRodjenja = new DateTime(1999, 1, 1, 0, 0, 0), LozinkaSalt = saltKupac, LozinkaHash = KorisnikService.GenerateHash(saltKupac, "string") }
+
             );
+
+        modelBuilder.Entity<Bolest>().HasData(
+            new Bolest { BolestId=1, Izbrisan=false, SifraPovrede="RK1", TipPovrede="Prijelom koljena", TrajanjePovredeDani=30}
+
+            );
+
+        modelBuilder.Entity<Clanarina>().HasData(
+            new Clanarina { ClanarinaId=1, DatumPlacanja=DateTime.Now, Dug=0, Izbrisan=false, KorisnikId=4, Placena=false, IznosClanarine=60 }
+            );
+
+        modelBuilder.Entity<Pozicija>().HasData(
+            new Pozicija { PozicijaId = 1, Izbrisan=false, NazivPozicije="Centarfor", KategorijaPozicije="Napad" },
+            new Pozicija { PozicijaId = 2, Izbrisan=false, NazivPozicije="Srednji vezni", KategorijaPozicije="Vezni red" },
+            new Pozicija { PozicijaId = 3, Izbrisan=false, NazivPozicije="Srednji stoper", KategorijaPozicije="Odbrana" },
+            new Pozicija { PozicijaId = 4, Izbrisan=false, NazivPozicije="Ofanzivni vezni", KategorijaPozicije="Vezni red" },
+            new Pozicija { PozicijaId = 5, Izbrisan=false, NazivPozicije="Golman", KategorijaPozicije="Odbrana" }
+
+            );
+
+        modelBuilder.Entity<KorisnikPozicija>().HasData(
+            new KorisnikPozicija { KorisnikPozicijaId=1, KorisnikId=4, PozicijaId=1}
+            );
+
+        modelBuilder.Entity<Narudzba>().HasData(
+            new Narudzba { NarudzbaId=1, BrojNarudzba= "AJSDJWAIAfasfh1h23hs", Datum=DateTime.Now, Status="kreirano", KorisnikId=5 }
+            );
+
+        modelBuilder.Entity<Proizvod>().HasData(
+            new Proizvod { ProizvodId=1, Naziv="Gostujuci dres 24/25", Sifra="GD2425", Kategorija="Dresovi", Cijena=55, Kolicina=50, Izbrisan=false, StateMachine="draft"},
+            new Proizvod { ProizvodId=2, Naziv="Domaci dres 24/25", Sifra="DD2425", Kategorija="Dresovi", Cijena=55, Kolicina=50, Izbrisan=false, StateMachine="draft"},
+            new Proizvod { ProizvodId=3, Naziv="Sal", Sifra="Sal2425", Kategorija="Dodaci", Cijena=25, Kolicina=150, Izbrisan=false, StateMachine="draft"},
+            new Proizvod { ProizvodId=4, Naziv="Fudbalske slicice (5 kom.)", Sifra="FS2425", Kategorija="Razno", Cijena=1, Kolicina=1000, Izbrisan=false, StateMachine="draft"}
+            );
+        
+        modelBuilder.Entity<NarudzbaStavke>().HasData(
+            new NarudzbaStavke { NarudzbaStavkeId = 1, NarudzbaId=1, ProizvodId=1, Kolicina=2 },
+            new NarudzbaStavke { NarudzbaStavkeId = 2, NarudzbaId=1, ProizvodId=3, Kolicina=1 },
+            new NarudzbaStavke { NarudzbaStavkeId = 3, NarudzbaId=1, ProizvodId=4, Kolicina=20 }
+            );
+
+
+        modelBuilder.Entity<TransakcijskiRacun>().HasData(
+            new TransakcijskiRacun { TransakcijskiRacunId=1, BrojRacuna="12341234", AdresaPrebivalista="Mahala b.b.", NazivBanke="Univerzitetskih kredita", KorisnikId=1, Izbrisan=false },
+            new TransakcijskiRacun { TransakcijskiRacunId=2, BrojRacuna="47474747", AdresaPrebivalista="Alipasino polje 47", NazivBanke="Lipo halve hamdija", KorisnikId=2, Izbrisan=false }
+            );
+
+
+        modelBuilder.Entity<Platum>().HasData(
+            new Platum { PlataId=1, TransakcijskiRacunId=1, StateMachine="active", DatumSlanja=DateTime.Now, Izbrisan=false, Iznos=1200 },
+            new Platum { PlataId=2, TransakcijskiRacunId=2, StateMachine="active", DatumSlanja=DateTime.Now, Izbrisan=false, Iznos=900 }
+            );
+
+        modelBuilder.Entity<Stadion>().HasData(
+            new Stadion { StadionId = 1, NazivStadiona = "Podbrdo", KapacitetStadiona = 2000, Izbrisan = false },
+            new Stadion { StadionId = 2, NazivStadiona = "Uzbrdo", KapacitetStadiona = 2000, Izbrisan = false }
+            );
+
+        modelBuilder.Entity<Statistika>().HasData(
+            new Statistika { StatistikaId=1, Golovi=10, Asistencije=5, IgracMjeseca=false, BezPrimGola=0, 
+                ZutiKartoni=2, CrveniKartoni=1, ProsjecnaOcjena=8, OcjenaZadUtak=3, KorisnikId=4, Izbrisan=false }
+            );
+
+        modelBuilder.Entity<Termin>().HasData(
+            new Termin { TerminId=1, SifraTermina="UTK1", TipTermina="Domaca utakmica", Rezultat="0:0", StadionId=1, Datum=DateTime.Now }
+            );
+
+        modelBuilder.Entity<Trening>().HasData(
+            new Trening { TreningId=1, NazivTreninga="TPT", TipTreninga="Trening prvog tipa", DatumTreninga=DateTime.Now, Izbrisan=false }
+            );
+
+        modelBuilder.Entity<Uloga>().HasData(
+            new Uloga { UlogaId=1, NazivUloge="Administrator", PodtipUloge="Administracija", Izbrisan=false },
+            new Uloga { UlogaId=2, NazivUloge="Glavni trener", PodtipUloge="Strucni stab", Izbrisan=false },
+            new Uloga { UlogaId=3, NazivUloge="Glavni doktor", PodtipUloge="Medicinsko osoblje", Izbrisan=false },
+            new Uloga { UlogaId=4, NazivUloge="Igrac", PodtipUloge="Clan", Izbrisan=false },
+            new Uloga { UlogaId=5, NazivUloge="Kupac", PodtipUloge="Navijac", Izbrisan=false },
+            new Uloga { UlogaId=6, NazivUloge="Bez uloge", PodtipUloge="Bez uloge", Izbrisan=false }
+            );
+
+
 
         //OnModelCreatingPartial(modelBuilder);
     }
