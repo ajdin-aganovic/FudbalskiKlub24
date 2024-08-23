@@ -233,3 +233,6 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+UI/afk_android/.env
+UI/afk_admin/.env
+.env
