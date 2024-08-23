@@ -1,0 +1,81 @@
+version: '3'
+services:
+#MSSQL Docker
+  miniafk-sql:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=${ACCEPT_EULA}
+      - SA_PASSWORD=${LO_PASSWORD}
+      - MSSQL_PID=${MSSQL_PID}
+    ports:
+      - ${MSSQL_PORT}:1433
+    networks:
+      - miniafk2024
+#API Docker
+  miniafk-api:
+    restart: unless-stopped
+    build:
+      context: .
+    environment:
+      - ConnectionStrings:DefaultConnection=${CONNECTION_STRING}
+      - ASPNETCORE_ENVIRONMENT=Development
+      #- RABBITMQ_HOST=localhost
+      - RABBITMQ_HOST=${RABBITMQ_HOST}
+      - RABBITMQ_PORT=${RABBITMQ_PORT}
+      - RABBITMQ_USERNAME=${RABBITMQ_USER}
+      - RABBITMQ_PASSWORD=${RABBITMQ_PASS}
+      - SMTP_SERVER=${SMTP_SERVER}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USERNAME=${SMTP_USERNAME}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+    ports:
+      - ${API_PORT}:${API_PORT}
+    networks:
+      - miniafk2024
+    links:
+      - miniafk-sql
+      - rabbitmq
+    depends_on:
+      - miniafk-sql
+      - rabbitmq
+#RabbitMQ Docker
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_CREDENTIALS}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_CREDENTIALS}
+    networks:
+      - miniafk2024
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+#RabbitMQ Service Docker
+  rabbitmq-service:
+    restart: unless-stopped
+    build:
+        context: .
+        dockerfile: ./FudbalskiKlub.Subscriber/Dockerfile
+    environment:
+        #- RABBITMQ_HOST=localhost
+        - RABBITMQ_HOST=${RABBITMQ_HOST}
+        - RABBITMQ_PORT=${RABBITMQ_PORT}
+        - RABBITMQ_USERNAME=${RABBITMQ_USER}
+        - RABBITMQ_PASSWORD=${RABBITMQ_PASS}
+        - SMTP_SERVER=${SMTP_SERVER}
+        - SMTP_PORT=${SMTP_PORT}
+        - SMTP_USERNAME=${SMTP_USERNAME}
+        - SMTP_PASSWORD=${SMTP_PASSWORD}
+    depends_on:
+        - rabbitmq
+    networks:
+        - miniafk2024
+
+volumes:
+  rabbitmq_data:
+
+networks:
+  miniafk2024:
+    driver: bridge  
