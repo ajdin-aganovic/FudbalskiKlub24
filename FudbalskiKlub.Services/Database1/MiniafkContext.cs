@@ -376,9 +376,20 @@ public partial class MiniafkContext : DbContext
             entity.Property(e => e.PodtipUloge)
                 .HasMaxLength(50)
                 .IsUnicode(false);
+
+
         });
 
-        OnModelCreatingPartial(modelBuilder);
+        var saltAdmin = KorisnikService.GenerateSalt();
+
+        modelBuilder.Entity<Korisnik>().HasData(
+            new Korisnik { KorisnikId=1, Ime="Ajdin", Prezime="Admin", KorisnickoIme="ajdo", Email="ajdinaganovic23@gmail.com", Uloga="Administrator", PodUgovorom=true, 
+                PodUgovoromOd=DateTime.Now, PodUgovoromDo=new DateTime(2026, 08, 08), StrucnaSprema="VSS", Izbrisan=false, 
+                DatumRodjenja=new DateTime(1999, 9, 23, 0, 0, 0), LozinkaSalt=saltAdmin, LozinkaHash=KorisnikService.GenerateHash(saltAdmin, "string")  }
+            
+            );
+
+        //OnModelCreatingPartial(modelBuilder);
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

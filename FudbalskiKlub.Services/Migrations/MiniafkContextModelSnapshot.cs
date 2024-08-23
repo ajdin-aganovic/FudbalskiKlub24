@@ -153,6 +153,25 @@ namespace FudbalskiKlub.Services.Migrations
                         .HasName("PK__Korisnik__80B06D41D28B3EED");
 
                     b.ToTable("Korisnik", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            KorisnikId = 1,
+                            DatumRodjenja = new DateTime(1999, 9, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "ajdinaganovic23@gmail.com",
+                            Ime = "Ajdin",
+                            Izbrisan = false,
+                            KorisnickoIme = "ajdo",
+                            LozinkaHash = "X9daZgUPNFHXBUsvXLpS9NlOgU8=",
+                            LozinkaSalt = "+UEXRUzOUBzegZPmlU9P3g==",
+                            PodUgovorom = true,
+                            PodUgovoromDo = new DateTime(2026, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PodUgovoromOd = new DateTime(2024, 8, 23, 6, 46, 53, 757, DateTimeKind.Local).AddTicks(9224),
+                            Prezime = "Admin",
+                            StrucnaSprema = "VSS",
+                            Uloga = "Administrator"
+                        });
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.KorisnikBolest", b =>
