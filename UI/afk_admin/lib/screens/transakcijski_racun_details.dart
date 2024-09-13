@@ -166,7 +166,8 @@ class _TransakcijskiRacunDetailsScreen extends State<TransakcijskiRacunDetailsSc
 
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(onPressed: () async{
+            child: 
+            ElevatedButton(onPressed: () async{
                   _formKey.currentState?.saveAndValidate(focusOnInvalid: false);
                   // print(_formKey.currentState?.value);
                   //individualno pristupanje vrijednostima iz forme 

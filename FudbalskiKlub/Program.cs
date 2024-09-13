@@ -4,6 +4,7 @@ using FudbalskiKlub.Services;
 using FudbalskiKlub.Services.Database1;
 using FudbalskiKlub.Services.ProizvodiStateMachine;
 using FudbalskiKlub.Services.ProizvodStateMachine;
+using FudbalskiKlub.Services.ToDo4924StateMachine;
 using FudbalskiKlub.Subscriber;
 using Mapster;
 using Microsoft.AspNetCore.Authentication;
@@ -27,6 +28,8 @@ builder.Services.AddTransient<ITerminService, TerminService>();
 builder.Services.AddTransient<ITransakcijskiRacunService, TransakcijskiRacunService>();
 builder.Services.AddTransient<ITreningService, TreningService>();
 builder.Services.AddTransient<IUlogaService, UlogaService>();
+builder.Services.AddTransient<IToDo4924Service, ToDo4924Service>();
+
 
 builder.Services.AddTransient<BaseState>();
 builder.Services.AddTransient<InitialPlatumState>();
@@ -37,6 +40,15 @@ builder.Services.AddTransient<BaseProizvodState>();
 builder.Services.AddTransient<InitialProizvodState>();
 builder.Services.AddTransient<DraftProizvodState>();
 builder.Services.AddTransient<ActiveProizvodState>();
+
+
+
+builder.Services.AddTransient<BaseToDo4924State>();
+builder.Services.AddTransient<InitialToDo4924State>();
+builder.Services.AddTransient<IstekniToDo4924State>();
+builder.Services.AddTransient<RealizujToDo4924State>();
+builder.Services.AddTransient<UTokuToDo4924State>();
+
 
 builder.Services.AddSingleton<EmailJS>();
 
@@ -110,7 +122,7 @@ using (var scope = app.Services.CreateScope())
 {
     var dataContext = scope.ServiceProvider.GetRequiredService<MiniafkContext>();
 
-    dataContext.Database.Migrate();
+    //dataContext.Database.Migrate();
 
     var conn = dataContext.Database.GetConnectionString();
 

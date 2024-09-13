@@ -99,7 +99,7 @@ namespace FudbalskiKlub.Services.Migrations
                         new
                         {
                             ClanarinaId = 1,
-                            DatumPlacanja = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(1224),
+                            DatumPlacanja = new DateTime(2024, 9, 5, 22, 0, 20, 568, DateTimeKind.Local).AddTicks(6608),
                             Dug = 0.0,
                             Izbrisan = false,
                             IznosClanarine = 60.0,
@@ -185,11 +185,11 @@ namespace FudbalskiKlub.Services.Migrations
                             Ime = "Ajdin",
                             Izbrisan = false,
                             KorisnickoIme = "ajdo",
-                            LozinkaHash = "Oa4rx7+qcloIktHHPDpw8b81XA8=",
-                            LozinkaSalt = "IM7WzlHgXOgfq91wFu7WoA==",
+                            LozinkaHash = "gEr3bgmKrIO3/sbGB3v/FzJJ/1o=",
+                            LozinkaSalt = "MCrUfz3pAYtPE4NOu7oT1g==",
                             PodUgovorom = true,
                             PodUgovoromDo = new DateTime(2026, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PodUgovoromOd = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(121),
+                            PodUgovoromOd = new DateTime(2024, 9, 5, 22, 0, 20, 568, DateTimeKind.Local).AddTicks(5655),
                             Prezime = "Admin",
                             StrucnaSprema = "VSS",
                             Uloga = "Administrator"
@@ -202,11 +202,11 @@ namespace FudbalskiKlub.Services.Migrations
                             Ime = "Glavni",
                             Izbrisan = false,
                             KorisnickoIme = "trener1",
-                            LozinkaHash = "Std8QmPLz3h+a2jBEP0bkPmWOXI=",
-                            LozinkaSalt = "tPUEJCbWXnbPbOuO3qPUQA==",
+                            LozinkaHash = "Nm6RJbzg6T9512NU1TV/IPPuvz8=",
+                            LozinkaSalt = "RC6dmWVxBxOhDNdlS9aZxQ==",
                             PodUgovorom = true,
                             PodUgovoromDo = new DateTime(2026, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PodUgovoromOd = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(499),
+                            PodUgovoromOd = new DateTime(2024, 9, 5, 22, 0, 20, 568, DateTimeKind.Local).AddTicks(6089),
                             Prezime = "Trener",
                             StrucnaSprema = "VSS",
                             Uloga = "Glavni trener"
@@ -219,11 +219,11 @@ namespace FudbalskiKlub.Services.Migrations
                             Ime = "Glavni",
                             Izbrisan = false,
                             KorisnickoIme = "doktor1",
-                            LozinkaHash = "ePGBJ/x27uOkdSqDzzhvQ3u4550=",
-                            LozinkaSalt = "4TNlW/LENlovWxtQ1YlEfQ==",
+                            LozinkaHash = "wAAHZ3E0UtEzNbxPQc1OwOKSxc8=",
+                            LozinkaSalt = "Lx2jRZASOQFNBfyDLFoblw==",
                             PodUgovorom = true,
                             PodUgovoromDo = new DateTime(2026, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PodUgovoromOd = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(583),
+                            PodUgovoromOd = new DateTime(2024, 9, 5, 22, 0, 20, 568, DateTimeKind.Local).AddTicks(6140),
                             Prezime = "Doktor",
                             StrucnaSprema = "VSS",
                             Uloga = "Doktor"
@@ -236,11 +236,11 @@ namespace FudbalskiKlub.Services.Migrations
                             Ime = "Igrac",
                             Izbrisan = false,
                             KorisnickoIme = "igrac1",
-                            LozinkaHash = "UziO86wljvMdfmbwvGRrqRE6GFE=",
-                            LozinkaSalt = "hvmvzCoKklCU4gtJVPKiow==",
+                            LozinkaHash = "97JVRbLrWnc8siL4LBvPXkJRBS8=",
+                            LozinkaSalt = "O+L3QnUvUiB4ke+sXOibUg==",
                             PodUgovorom = true,
                             PodUgovoromDo = new DateTime(2026, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PodUgovoromOd = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(624),
+                            PodUgovoromOd = new DateTime(2024, 9, 5, 22, 0, 20, 568, DateTimeKind.Local).AddTicks(6187),
                             Prezime = "Prvi",
                             StrucnaSprema = "SSS",
                             Uloga = "Igrac"
@@ -253,11 +253,11 @@ namespace FudbalskiKlub.Services.Migrations
                             Ime = "Kupac",
                             Izbrisan = false,
                             KorisnickoIme = "kupac1",
-                            LozinkaHash = "VDNx7QjEhNesT0sEJMcLyMeordU=",
-                            LozinkaSalt = "/UyWVOB7LDKVu75v1Js4VQ==",
+                            LozinkaHash = "d1qO/+BpxbUBjV6y+a9rYCxopl8=",
+                            LozinkaSalt = "TCbkJzqk6MPlWLU/AKPm8w==",
                             PodUgovorom = true,
                             PodUgovoromDo = new DateTime(2026, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PodUgovoromOd = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(664),
+                            PodUgovoromOd = new DateTime(2024, 9, 5, 22, 0, 20, 568, DateTimeKind.Local).AddTicks(6231),
                             Prezime = "Prvi",
                             StrucnaSprema = "VSS",
                             Uloga = "Kupac"
@@ -410,7 +410,7 @@ namespace FudbalskiKlub.Services.Migrations
                         {
                             NarudzbaId = 1,
                             BrojNarudzba = "AJSDJWAIAfasfh1h23hs",
-                            Datum = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(1344),
+                            Datum = new DateTime(2024, 9, 5, 22, 0, 20, 568, DateTimeKind.Local).AddTicks(6729),
                             KorisnikId = 5,
                             Status = "kreirano"
                         });
@@ -502,7 +502,7 @@ namespace FudbalskiKlub.Services.Migrations
                         new
                         {
                             PlataId = 1,
-                            DatumSlanja = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(1477),
+                            DatumSlanja = new DateTime(2024, 9, 5, 22, 0, 20, 568, DateTimeKind.Local).AddTicks(6924),
                             Izbrisan = false,
                             Iznos = 1200.0,
                             StateMachine = "active",
@@ -511,7 +511,7 @@ namespace FudbalskiKlub.Services.Migrations
                         new
                         {
                             PlataId = 2,
-                            DatumSlanja = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(1484),
+                            DatumSlanja = new DateTime(2024, 9, 5, 22, 0, 20, 568, DateTimeKind.Local).AddTicks(6931),
                             Izbrisan = false,
                             Iznos = 900.0,
                             StateMachine = "active",
@@ -816,11 +816,66 @@ namespace FudbalskiKlub.Services.Migrations
                         new
                         {
                             TerminId = 1,
-                            Datum = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(1581),
+                            Datum = new DateTime(2024, 9, 5, 22, 0, 20, 568, DateTimeKind.Local).AddTicks(7019),
                             Rezultat = "0:0",
                             SifraTermina = "UTK1",
                             StadionId = 1,
                             TipTermina = "Domaca utakmica"
+                        });
+                });
+
+            modelBuilder.Entity("FudbalskiKlub.Services.Database1.ToDo4924", b =>
+                {
+                    b.Property<int>("todo4924Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("todo4924Id"));
+
+                    b.Property<DateTime?>("datumZavrsenja")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("korisnikId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("nazivAktivnosti")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("opisAktivnosti")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("stateMachine")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("todo4924Id")
+                        .HasName("PK__ToDo__AHSDHH23HA8231");
+
+                    b.HasIndex("korisnikId");
+
+                    b.ToTable("ToDo4924", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            todo4924Id = 1,
+                            datumZavrsenja = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            korisnikId = 1,
+                            nazivAktivnosti = "Prva aktivnost",
+                            opisAktivnosti = "Detaljni opis prve aktivnosti",
+                            stateMachine = "U toku"
+                        },
+                        new
+                        {
+                            todo4924Id = 2,
+                            datumZavrsenja = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            korisnikId = 2,
+                            nazivAktivnosti = "Druga aktivnost",
+                            opisAktivnosti = "Detaljni opis druge aktivnosti",
+                            stateMachine = "U toku"
                         });
                 });
 
@@ -914,7 +969,7 @@ namespace FudbalskiKlub.Services.Migrations
                         new
                         {
                             TreningId = 1,
-                            DatumTreninga = new DateTime(2024, 8, 23, 8, 43, 14, 205, DateTimeKind.Local).AddTicks(1612),
+                            DatumTreninga = new DateTime(2024, 9, 5, 22, 0, 20, 568, DateTimeKind.Local).AddTicks(7046),
                             Izbrisan = false,
                             NazivTreninga = "TPT",
                             TipTreninga = "Trening prvog tipa"
@@ -1156,6 +1211,16 @@ namespace FudbalskiKlub.Services.Migrations
                     b.Navigation("Stadion");
                 });
 
+            modelBuilder.Entity("FudbalskiKlub.Services.Database1.ToDo4924", b =>
+                {
+                    b.HasOne("FudbalskiKlub.Services.Database1.Korisnik", "Korisnik")
+                        .WithMany("ToDo4924s")
+                        .HasForeignKey("korisnikId")
+                        .HasConstraintName("FK_KorisnikToDo4924s");
+
+                    b.Navigation("Korisnik");
+                });
+
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.TransakcijskiRacun", b =>
                 {
                     b.HasOne("FudbalskiKlub.Services.Database1.Korisnik", "Korisnik")
@@ -1201,6 +1266,8 @@ namespace FudbalskiKlub.Services.Migrations
                     b.Navigation("KorisnikUlogas");
 
                     b.Navigation("Statistikas");
+
+                    b.Navigation("ToDo4924s");
 
                     b.Navigation("TransakcijskiRacuns");
                 });

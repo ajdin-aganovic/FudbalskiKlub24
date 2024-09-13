@@ -20,8 +20,8 @@ import '../utils/util.dart';
 abstract class BaseProvider<T> with ChangeNotifier {
   static String? _baseUrl;
   String? _endpoint;
-  String get envValue=>dotenv.env['MOBILNA_DOCKER']??"https://google.com";
-  String get envValueInternet=>dotenv.env['MOBILNA_INTERNET']??"https://youtube.com";
+  String get envValue=>dotenv.env['MOBILNA_DOCKER1']??"https://google.com";
+  String get envValueInternet=>dotenv.env['MOBILNA_INTERNET1']??"https://youtube.com";
   String get envValueLokalna=>dotenv.env['MOBILNA_LOKALNA']??"https://instagram.com";
   HttpClient client = HttpClient();
   IOClient? http;
@@ -29,8 +29,8 @@ abstract class BaseProvider<T> with ChangeNotifier {
   BaseProvider(String endpoint) {
 
     _baseUrl=envValue;
-    // _baseUrl=envValueLocal;
     // _baseUrl=envValueLokalna;
+    // _baseUrl=envValueInternet;
 
     print("baseurl: $_baseUrl");
 
@@ -58,6 +58,24 @@ abstract class BaseProvider<T> with ChangeNotifier {
     }
   }
 
+Future<List<T>> allowedActions([int? id]) async {
+    var url = Uri.parse("https://10.0.2.2:7181/allowedActions/$id");
+
+    Map<String, String> headers = createHeaders();
+
+    var response = await http!.get(url, headers: headers);
+
+    if (isValidResponse(response)) {
+      var data = jsonDecode(response.body);
+      return data.map((x) => fromJson(x)).cast<T>().toList();
+    } else {
+      throw Exception("Exception... handle this gracefully");
+    }
+  }
+
+
+
+  
   Future<SearchResult<T>>get({dynamic filter})async{
     var fullAPI="$_baseUrl$_endpoint";
 
@@ -185,6 +203,42 @@ abstract class BaseProvider<T> with ChangeNotifier {
 
   Future<T> hidePlatum(int id)async{
     var fullAPI="$_baseUrl$_endpoint/$id/hide";
+    var uriFullApi=Uri.parse(fullAPI);
+    var headerz=createHeaders();
+
+    var jsonRequest=jsonEncode(id);
+
+    var response=await http!.put(uriFullApi, headers: headerz, body: jsonRequest);
+    if(IsValidResponse(response))
+        {
+          var data=jsonDecode(response.body);
+          return fromJson(data);
+        }
+        else {
+          throw Exception("Unknown error.");
+        }
+  }
+
+  Future<T> realizuj(int id)async{
+    var fullAPI="$_baseUrl$_endpoint/$id/realizuj";
+    var uriFullApi=Uri.parse(fullAPI);
+    var headerz=createHeaders();
+
+    var jsonRequest=jsonEncode(id);
+
+    var response=await http!.put(uriFullApi, headers: headerz, body: jsonRequest);
+    if(IsValidResponse(response))
+        {
+          var data=jsonDecode(response.body);
+          return fromJson(data);
+        }
+        else {
+          throw Exception("Unknown error.");
+        }
+  }
+
+  Future<T> istekni(int id)async{
+    var fullAPI="$_baseUrl$_endpoint/$id/istekni";
     var uriFullApi=Uri.parse(fullAPI);
     var headerz=createHeaders();
 

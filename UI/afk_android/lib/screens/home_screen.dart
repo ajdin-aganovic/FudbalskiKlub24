@@ -1,6 +1,7 @@
 import 'package:afk_android/main.dart';
 import 'package:afk_android/screens/korisnik_details_screen.dart';
 import 'package:afk_android/screens/proizvod_list_screen.dart';
+import 'package:afk_android/screens/todo4924_screen.dart';
 
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:afk_android/providers/korisnik_provider.dart';
@@ -145,6 +146,8 @@ final Map<String,dynamic>_initialValue={};
                                       ),
                                     ],
                                   ),
+
+                                  
                                 ],
                               ),
               
@@ -187,6 +190,21 @@ final Map<String,dynamic>_initialValue={};
                                   }, child: const Text("Detalji o računu"),
                                   ),
                                   ),
+
+                                  SizedBox(height: 80, width: 200, child: 
+                                  ElevatedButton(onPressed: (){
+                                  
+                                  Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                  builder: (context) => ToDo4924ListScreen()
+                                  ),
+                                  );
+                                  
+                                    
+                                  }, child: const Text("Idi na ToDo4924")),
+                                  ),
+                                
+                                  
               
                                   
                                 ],

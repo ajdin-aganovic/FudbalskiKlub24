@@ -125,26 +125,39 @@ namespace FudbalskiKlub.Services
 
 
 
-            //prediction
+            ////prediction
 
             var products = _context.Proizvods.Where(x => x.ProizvodId != id);
 
             var predictionResult = new List<Tuple<Database1.Proizvod, float>>();
 
+            //foreach (var product in products)
+            //{
+
+            //    var predictionengine = mlContext.Model.CreatePredictionEngine<ProductEntry, Copurchase_prediction>(model);
+            //    var prediction = predictionengine.Predict(
+            //                             new ProductEntry()
+            //                             {
+            //                                 ProductID = (uint)id,
+            //                                 CoPurchaseProductID = (uint)product.ProizvodId
+            //                             });
+
+
+            //    predictionResult.Add(new Tuple<Database1.Proizvod, float>(product, prediction.Score));
+            //}
+
+            //var predictionengine = mlContext.Model.CreatePredictionEngine<ProductEntry, Copurchase_prediction>(model);
+            var predictionEngine = mlContext.Model.CreatePredictionEngine<ProductEntry, Copurchase_prediction>(model);
             foreach (var product in products)
             {
-
-                var predictionengine = mlContext.Model.CreatePredictionEngine<ProductEntry, Copurchase_prediction>(model);
-                var prediction = predictionengine.Predict(
-                                         new ProductEntry()
-                                         {
-                                             ProductID = (uint)id,
-                                             CoPurchaseProductID = (uint)product.ProizvodId
-                                         });
-
-
+                var prediction = predictionEngine.Predict(new ProductEntry()
+                {
+                    ProductID = (uint)id,
+                    CoPurchaseProductID = (uint)product.ProizvodId
+                });
                 predictionResult.Add(new Tuple<Database1.Proizvod, float>(product, prediction.Score));
             }
+
 
 
             var finalResult = predictionResult.OrderByDescending(x => x.Item2).Select(x => x.Item1).Take(3).ToList();

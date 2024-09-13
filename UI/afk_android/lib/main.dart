@@ -8,6 +8,8 @@ import 'package:afk_android/providers/proizvod_provider.dart';
 import 'package:afk_android/providers/transakcijski_racun_provider.dart';
 import 'package:afk_android/screens/korisnik_details_screen.dart';
 import 'package:afk_android/screens/reset_password_screen.dart';
+import 'package:afk_android/screens/todo4924_screen.dart';
+import 'package:afk_android/providers/todo4924_provider.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:afk_android/providers/korisnik_provider.dart';
 import 'package:afk_android/providers/uloga_provider.dart';
@@ -32,6 +34,7 @@ void main() async {
     ChangeNotifierProvider(create: (_) => ProizvodProvider()),
     ChangeNotifierProvider(create: (_) => CartProvider()),
     ChangeNotifierProvider(create: (_) => NarudzbaProvider()),
+    ChangeNotifierProvider(create: (_) => ToDo4924Provider()),
 
   ],
   child: const MyMaterialApp(),));

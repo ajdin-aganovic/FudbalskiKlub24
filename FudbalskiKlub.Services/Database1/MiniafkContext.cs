@@ -52,6 +52,7 @@ public partial class MiniafkContext : DbContext
     public virtual DbSet<TreningStadion> TreningStadions { get; set; }
 
     public virtual DbSet<Uloga> Ulogas { get; set; }
+    public virtual DbSet<ToDo4924>ToDo4924 { get; set; }
 
 //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -380,6 +381,24 @@ public partial class MiniafkContext : DbContext
 
         });
 
+        modelBuilder.Entity<ToDo4924>(entity =>
+        {
+            entity.HasKey(e => e.todo4924Id).HasName("PK__ToDo__AHSDHH23HA8231");
+
+            entity.ToTable("ToDo4924");
+
+            entity.Property(e => e.nazivAktivnosti)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.opisAktivnosti)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.HasOne(d => d.Korisnik).WithMany(p => p.ToDo4924s)
+                .HasForeignKey(d => d.korisnikId)
+                .HasConstraintName("FK_KorisnikToDo4924s");
+
+        });
+
         var saltAdmin = KorisnikService.GenerateSalt();
         var saltTrener = KorisnikService.GenerateSalt();
         var saltDoktor = KorisnikService.GenerateSalt();
@@ -492,6 +511,10 @@ public partial class MiniafkContext : DbContext
             new Uloga { UlogaId=6, NazivUloge="Bez uloge", PodtipUloge="Bez uloge", Izbrisan=false }
             );
 
+        modelBuilder.Entity<ToDo4924>().HasData(
+            new ToDo4924 { todo4924Id=1, korisnikId=1, datumZavrsenja=new DateTime(2024, 10, 10), nazivAktivnosti="Prva aktivnost", opisAktivnosti="Detaljni opis prve aktivnosti", stateMachine="U toku"},
+            new ToDo4924 { todo4924Id=2, korisnikId=2, datumZavrsenja=new DateTime(2024, 10, 10), nazivAktivnosti="Druga aktivnost", opisAktivnosti="Detaljni opis druge aktivnosti", stateMachine="U toku"}
+            );
 
 
         //OnModelCreatingPartial(modelBuilder);
