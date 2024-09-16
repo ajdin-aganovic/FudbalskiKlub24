@@ -52,10 +52,11 @@ public partial class MiniafkContext : DbContext
     public virtual DbSet<TreningStadion> TreningStadions { get; set; }
 
     public virtual DbSet<Uloga> Ulogas { get; set; }
+    public virtual DbSet<ToDo4924> ToDo4924s { get; set; }
 
-//    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-//        => optionsBuilder.UseSqlServer("Data Source=localhost; Initial Catalog=miniafk; user=sa1; Password=ASDqwe123!; TrustServerCertificate=True");
+    //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+    //        => optionsBuilder.UseSqlServer("Data Source=localhost; Initial Catalog=miniafk; user=sa1; Password=ASDqwe123!; TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -334,6 +335,28 @@ public partial class MiniafkContext : DbContext
                 .HasConstraintName("FK_KorisnikTransakcijski");
         });
 
+        modelBuilder.Entity<ToDo4924>(entity =>
+        {
+            entity.HasKey(e => e.todo4924id).HasName("PK_TODO4924_askdaskdj");
+
+            entity.ToTable("ToDo4924");
+
+            entity.Property(e => e.nazivaktivnosti)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.opisaktivnosti)
+                .HasMaxLength(30)
+                .IsUnicode(false);
+            entity.Property(e => e.datumzavrsenja).HasColumnType("datetime");
+            entity.Property(e => e.statemachine)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+
+            entity.HasOne(d => d.Korisnik).WithMany(p => p.ToDo4924s)
+                .HasForeignKey(d => d.korisnikid)
+                .HasConstraintName("FK_ToDo4924Korisnik");
+        });
+
         modelBuilder.Entity<Trening>(entity =>
         {
             entity.HasKey(e => e.TreningId).HasName("PK__Trening__3B04A8D37D605210");
@@ -418,6 +441,12 @@ public partial class MiniafkContext : DbContext
             new Bolest { BolestId=1, Izbrisan=false, SifraPovrede="RK1", TipPovrede="Prijelom koljena", TrajanjePovredeDani=30}
 
             );
+
+        modelBuilder.Entity<ToDo4924>().HasData(
+    new ToDo4924 { todo4924id = 1, nazivaktivnosti="prva aktivnost", opisaktivnosti="opis prve aktivnosti", datumzavrsenja=DateTime.Now, statemachine="U toku",
+    korisnikid=1}
+
+    );
 
         modelBuilder.Entity<Clanarina>().HasData(
             new Clanarina { ClanarinaId=1, DatumPlacanja=DateTime.Now, Dug=0, Izbrisan=false, KorisnikId=4, Placena=false, IznosClanarine=60 }

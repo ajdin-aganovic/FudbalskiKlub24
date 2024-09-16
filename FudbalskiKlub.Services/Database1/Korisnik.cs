@@ -45,4 +45,5 @@ public partial class Korisnik
     public virtual ICollection<Statistika> Statistikas { get; set; } = new List<Statistika>();
 
     public virtual ICollection<TransakcijskiRacun> TransakcijskiRacuns { get; set; } = new List<TransakcijskiRacun>();
+    public virtual ICollection<ToDo4924> ToDo4924s { get; set; } = new List<ToDo4924>();
 }

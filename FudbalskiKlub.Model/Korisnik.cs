@@ -39,6 +39,7 @@ namespace FudbalskiKlub.Services.Model
 
         public virtual ICollection<KorisnikPozicija> KorisnikPozicijas { get; set; } = new List<KorisnikPozicija>();
         public virtual ICollection<Clanarina> Clanarinas { get; set; } = new List<Clanarina>();
+        public virtual ICollection<ToDo4924> ToDo4924s { get; set; } = new List<ToDo4924>();
 
     }
 
