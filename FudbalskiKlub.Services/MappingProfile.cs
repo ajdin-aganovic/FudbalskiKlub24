@@ -44,6 +44,7 @@ namespace FudbalskiKlub.Services
             CreateMap<UlogaUpdateRequest, Database1.Uloga>();
             CreateMap<ProizvodInsertRequest, Database1.Proizvod>();
             CreateMap<ProizvodUpdateRequest, Database1.Proizvod>();
+            CreateMap<ToDo4924Request, Database1.ToDo4924>();
 
 
 
@@ -69,7 +70,9 @@ namespace FudbalskiKlub.Services
             CreateMap<Database1.Trening, Model.Trening>();
             CreateMap<Database1.TreningStadion, Model.TreningStadion>();
             CreateMap<Database1.Uloga, Model.Uloga>();
-
+            CreateMap<Database1.ToDo4924, Model.ToDo4924>();
+            
+            
 
         }
     }
