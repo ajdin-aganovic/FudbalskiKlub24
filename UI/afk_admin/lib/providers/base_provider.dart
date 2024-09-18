@@ -14,7 +14,9 @@ import '../utils/util.dart';
 abstract class BaseProvider<T> with ChangeNotifier{
   static String? _baseUrl;
   String _endpoint="";
-  String get envValue => dotenv.env['ADRESA_DOCKER'] ?? 'https://google.ba';
+  // String get envValue => dotenv.env['ADRESA_DOCKER'] ?? 'https://google.ba';
+  String get envValue => dotenv.env['ADRESA_LOKALNE'] ?? 'https://google.ba';
+
 
 
   BaseProvider(String endpoint){

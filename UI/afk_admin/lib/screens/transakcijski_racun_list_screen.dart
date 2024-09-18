@@ -46,6 +46,14 @@ class _TransakcijskiRacunListScreen extends State<TransakcijskiRacunListScreen> 
 
   Future initForm()async{
       _korisnikResult=await _korisnikProvider.get();
+
+      var data = await _transakcijskiRacunProvider.get(filter: {
+    'BrojRacuna': _brojRacuna.text,
+  });
+
+  setState(() {
+    resultTrans = data;
+  });
   }
 
    String? getKorisnikDetails(int? id)

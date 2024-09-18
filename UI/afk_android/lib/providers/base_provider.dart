@@ -20,7 +20,7 @@ import '../utils/util.dart';
 abstract class BaseProvider<T> with ChangeNotifier {
   static String? _baseUrl;
   String? _endpoint;
-  String get envValue=>dotenv.env['MOBILNA_DOCKER']??"https://google.com";
+  String get envValue=>dotenv.env['MOBILNA_DOCKER1']??"https://google.com";
   String get envValueInternet=>dotenv.env['MOBILNA_INTERNET']??"https://youtube.com";
   String get envValueLokalna=>dotenv.env['MOBILNA_LOKALNA']??"https://instagram.com";
   HttpClient client = HttpClient();
@@ -163,6 +163,43 @@ abstract class BaseProvider<T> with ChangeNotifier {
           throw Exception("Unknown error.");
         }
   }
+
+  Future<T> realizuj(int id)async{
+    var fullAPI="$_baseUrl$_endpoint/$id/realizuj";
+    var uriFullApi=Uri.parse(fullAPI);
+    var headerz=createHeaders();
+
+    var jsonRequest=jsonEncode(id);
+
+    var response=await http!.put(uriFullApi, headers: headerz, body: jsonRequest);
+    if(IsValidResponse(response))
+        {
+          var data=jsonDecode(response.body);
+          return fromJson(data);
+        }
+        else {
+          throw Exception("Unknown error.");
+        }
+  }
+
+  Future<T> istekni(int id)async{
+    var fullAPI="$_baseUrl$_endpoint/$id/istekni";
+    var uriFullApi=Uri.parse(fullAPI);
+    var headerz=createHeaders();
+
+    var jsonRequest=jsonEncode(id);
+
+    var response=await http!.put(uriFullApi, headers: headerz, body: jsonRequest);
+    if(IsValidResponse(response))
+        {
+          var data=jsonDecode(response.body);
+          return fromJson(data);
+        }
+        else {
+          throw Exception("Unknown error.");
+        }
+  }
+
 
   bool IsValidResponse(Response response){
   if(response.statusCode<299) {
